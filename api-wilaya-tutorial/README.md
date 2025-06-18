@@ -13,8 +13,8 @@ The Wilaya/Commune API helps you find commune and wilaya details using geographi
 ## 🔁 Clone the repository
 
 ```bash
-git clone https://github.com/votre-utilisateur/votre-repo.git
-cd votre-repo
+git clone https://github.com/transformatek/geospatial-apis-python-tutorials.git
+cd geospatial-apis-python-tutorials
 ```
 
 ## ⚙️ Environment Setup
@@ -73,3 +73,5 @@ Status: 200
 - [https://github.com/deploily/api-wilaya-commune](https://github.com/deploily/api-wilaya-commune)
 - [https://docs.deploily.cloud/wilaya-commune-api/#/](https://docs.deploily.cloud/wilaya-commune-api/#/)
 - [https://deploily.cloud/](https://deploily.cloud/)
+- [https://hub.deploily.cloud/blog/deploily-apis-3/accurate-wilaya-lookup-in-algeria-using-latitude-longitude-11](https://hub.deploily.cloud/blog/deploily-apis-3/accurate-wilaya-lookup-in-algeria-using-latitude-longitude-11)
+
