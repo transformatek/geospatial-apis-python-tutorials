@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Carte des Clients</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 600px; width: 100%; }
+    </style>
+</head>
+<body>
+    <h2>📍 Carte des Clients</h2>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        let clientData = {{ clients | tojson | safe }};
+        console.log(clientData);
+
+        let map;
+        if (clientData.length > 0) {
+            // Centrer la carte sur le premier client
+            const firstLat = clientData[0].latitude;
+            const firstLon = clientData[0].longitude;
+
+            map = L.map('map').setView([firstLat, firstLon], 6);
+        } else {
+            // Valeur par défaut si aucun client
+            map = L.map('map').setView([28, 1.6], 5);
+        }
+
+        // Ajouter la couche OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Ajouter les marqueurs
+        clientData.forEach(client => {
+            if (client.latitude && client.longitude) {
+                L.marker([client.latitude, client.longitude])
+                    .addTo(map)
+                    .bindPopup(`<b>${client.name}</b><br>${client.address}`);
+            }
+        });
+    </script>
+</body>
+</html>
